@@ -56,8 +56,8 @@ def shouldbet(round, show=False, funny=False):
         for line in round1:
             line = line.split("\t")
             if int(100 * thisElo.expectResult(thisElo.getElo(line[0]), thisElo.getElo(line[1]))) > 70:
-                print(f"{line[0]} has a {int(100 * thisElo.expectResult(thisElo.getElo(line[0]), thisElo.getElo(line[1])))}"
-                      f"% chance of beating {line[1]}, you should bet")
+                print(f"{line[0]} ({int(thisElo.getElo(line[0]))}) has a {int(100 * thisElo.expectResult(thisElo.getElo(line[0]), thisElo.getElo(line[1])))}"
+                      f"% chance of beating {line[1]}({int(thisElo.getElo(line[1]))}), you should bet")
             if int(100 * thisElo.expectResult(thisElo.getElo(line[0]), thisElo.getElo(line[1]))) < 30:
                 print(f"{line[0]} has a {int(100 * thisElo.expectResult(thisElo.getElo(line[0]), thisElo.getElo(line[1])))}"
                       f"% chance of beating {line[1]}, you should bet")
