@@ -1,0 +1,8 @@
+Sydney	Port Adelaide	10	True
+Hawthorn	Collingwood	10	True
+Richmond	Greater Western Sydney	9	True
+Gold Coast	North Melbourne	55	True
+Western Bulldogs	Carlton	11	True
+West Coast	Melbourne	54	False
+St Kilda	Essendon	110	True
+Fremantle	Brisbane Lions	36	True

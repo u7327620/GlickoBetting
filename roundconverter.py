@@ -1,6 +1,6 @@
 homeField = {
     'Adelaide': 'Adelaide Oval',
-    'Brisbane': 'GABBA, ' 'Brisbane Oval',
+    'Brisbane Lions': 'GABBA, ' 'Brisbane Oval',
     'Carlton': 'Docklands, ' 'M.C.G.',
     'Collingwood': 'M.C.G., ' 'Melbourne',
     'Essendon': 'Docklands, ' 'M.C.G.',
@@ -90,4 +90,4 @@ def convert(file):
             tmp = "\t".join(list)
             f.writelines(f'{tmp}\n')
         f.close()
-convert("r5.txt")
+convert("r23.txt")

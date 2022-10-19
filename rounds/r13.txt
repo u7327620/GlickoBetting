@@ -1,0 +1,6 @@
+Fremantle	Collingwood	7	True
+Richmond	Sydney	18	False
+Hawthorn	Essendon	38	True
+Adelaide	Brisbane Lions	13	False
+Western Bulldogs	St Kilda	6	True
+Carlton	Gold Coast	34	True

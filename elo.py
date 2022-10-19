@@ -24,10 +24,4 @@ class Elo:
 
     def listResult(self):
         for player in self.ratingDict:
-
             print(f'{player} is: {int(self.ratingDict[player])} elo')
-
-
-test = Elo(k=20)
-test.addPlayer("Daniel", rating=1600)
-test.addPlayer("Mike")

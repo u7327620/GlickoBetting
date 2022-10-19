@@ -1,4 +1,4 @@
 import functions
 
 functions.teaminit()
-print(functions.doRounds(2))
+print(functions.doRounds(22))

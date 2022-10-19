@@ -1,0 +1,6 @@
+Geelong	Port Adelaide	23	False
+Fremantle	Gold Coast	7	False
+West Coast	Essendon	50	True
+Sydney	North Melbourne	16	False
+Collingwood	Greater Western Sydney	42	True
+St Kilda	Melbourne	2	True
