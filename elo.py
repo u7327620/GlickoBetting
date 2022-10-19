@@ -18,9 +18,12 @@ class Elo:
         self.ratingDict[winner] = self.ratingDict[winner] + (self.k * self.g) * (1 - result)
         self.ratingDict[loser] = self.ratingDict[loser] + (self.k * self.g) * (0 - (1 - result))
 
+    def getElo(self, team):
+        return self.ratingDict[team]
+
     def expectResult(self, p1, p2):
         exp = (p2 - p1) / 400.0
-        return 1 / ((10.0 ** (exp)) + 1)
+        return 1.0 / (1.0 + 10.0 ** (exp))
 
     def listResult(self):
         for player in self.ratingDict:
