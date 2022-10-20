@@ -49,7 +49,7 @@ def predictions(round, show=False, funny=False):
             print(f"That's roughly {succ} out of {total}")
     return f"{succ}, {total}"
 
-def shouldbet(round, show=False, funny=False):
+def shouldbet(round, margin=False):
     print(f"Round number: {round}")
     thisElo = doRounds(round - 1)
     with open(f"rounds/r{round}.txt", "r") as round1:
