@@ -1,23 +1,17 @@
 import functions
 
-
-
-
-roundslist = []
-for i in range(10, 22):
+bets = [0, 0]
+for i in range(10, 23):
     x = functions.shouldbet(i+1)
     x = x.split(", ")
+    print(x)
     if int(x[0]) > 0:
-        tmp = int(x[0])/int(x[1])
-        roundslist.append(tmp)
-print(roundslist)
-tmp = 0
-for float in roundslist:
-    tmp += float
-tmp = tmp/len(roundslist)
-print(int(tmp*100), "% of bets will win money")
+        bets[0] += int(x[0]) 
+        bets[1] += int(x[1])
+percentCorrect = bets[0]/bets[1]
+print(f"{int(percentCorrect*100)}% are correct or {bets[0]} out of {bets[1]}")
 
-"""
+
 out=[]
 for i in range(10, 23):
     x = functions.predictions(i+1, funny=True)
@@ -28,4 +22,3 @@ for percent in out:
     percentRight += percent
 percentRight = percentRight/int(len(out))
 print(int(percentRight*100), "% correct")
-"""
