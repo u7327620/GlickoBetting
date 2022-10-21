@@ -32,7 +32,18 @@ class Elo:
         for player in self.ratingDict:
             print(f'{player} is: {int(self.ratingDict[player])} elo')
 
-    def mValue(self, p1, p2):
+    def previousMatchLookup(self, p1, p2, currRound):
+        for i in range(currRound):
+            with open(f"rounds/r{i+1}.txt", "r") as round:
+                for line in round:
+                    line = line.split("\t")
+                    if line[0] == p1 and line[1] == p2 or line[0] == p2 and line[1] == p1:
+                        return int(line[2])
+        return 0
+
+
+    def mValue(self, p1, p2, currRound):
+        x = self.previousMatchLookup(p1, p2, currRound)
         p1name = p1
         p2name = p2
         p1 = self.ratingDict[p1]
@@ -50,4 +61,9 @@ class Elo:
                 tmp = abs(1 / 5 * (p2 - p1))
             else:
                 tmp = 0
-        return f"{p1name} vs {p2name} has a M value of: {tmp}"
+        if x > 0: # it returns 0 if there is no previous match
+            out = f"{int(x-tmp/2)} to {int(x+tmp/2)}"
+        else:
+            out = tmp
+        string = f"{p1name} vs {p2name} has a M value of: {out}"
+        return string, out
