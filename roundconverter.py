@@ -21,7 +21,7 @@ homeField = {
 
 def convert(file):
     # step 1, removing useless information
-    with open(f"rounds/{file}", "r") as f:
+    with open(f"prevRounds/{file}", "r") as f:
         # 1st line is odd
         lineodd = True
         outlines = []
@@ -44,12 +44,12 @@ def convert(file):
             words = "\t".join(words)
             outlines.append(f'{words}\n')
         f.close()
-    with open(f"rounds/{file}", "w") as f:
+    with open(f"prevRounds/{file}", "w") as f:
         f.writelines(outlines)
         f.close()
 
-    # step 2, converting for the other file
-    with open(f"rounds/{file}", 'r') as f:
+    # step 2, converting for use
+    with open(f"prevRounds/{file}", 'r') as f:
         secondline = False
         final = []
         for line in f:
@@ -68,7 +68,7 @@ def convert(file):
                     out.append(line[0])
                     out.append(lastline[0])
                     out.append(int(line[1]) - int(lastline[1]))
-
+                print(out)
                 if lastline[2] in homeField[out[0]].split(", "):
                     out.append("True")
                 else:
@@ -80,7 +80,7 @@ def convert(file):
                 lastline = line
                 secondline = True
         f.close()
-    with open(f"rounds/{file}", 'w') as f:
+    with open(f"prevRounds/{file}", 'w') as f:
         for list in final:
             i = 0
             for item in list:
@@ -90,4 +90,5 @@ def convert(file):
             tmp = "\t".join(list)
             f.writelines(f'{tmp}\n')
         f.close()
+
 convert("r23.txt")

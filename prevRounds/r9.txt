@@ -1,0 +1,6 @@
+Adelaide	Collingwood	21	True
+Sydney	Essendon	50	False
+Melbourne	Richmond	17	True
+North Melbourne	Brisbane Lions	87	True
+Fremantle	Geelong	32	True
+Gold Coast	St Kilda	38	False

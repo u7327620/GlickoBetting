@@ -1,0 +1,6 @@
+Geelong	North Melbourne	20	True
+Richmond	Greater Western Sydney	113	False
+Collingwood	West Coast	8	True
+Port Adelaide	Hawthorn	14	True
+Gold Coast	Western Bulldogs	45	True
+Carlton	Adelaide	5	True

@@ -9,13 +9,17 @@ class Elo:
     def addPlayer(self, name, rating=1500):
         self.ratingDict[name] = rating
 
-    def gameOver(self, winner, loser, winnerHome, wonby=0):
+    def gameOver(self, winner, loser, winnerHome, k=0):
         if winnerHome == "True":
             result = self.expectResult(self.ratingDict[winner] + self.homefield, self.ratingDict[loser])
         else:
             result = self.expectResult(self.ratingDict[winner], self.ratingDict[loser] + self.homefield)
-        self.ratingDict[winner] = self.ratingDict[winner] + (self.k * self.g) * (1 - result)
-        self.ratingDict[loser] = self.ratingDict[loser] + (self.k * self.g) * (0 - (1 - result))
+        if k:
+            self.ratingDict[winner] = self.ratingDict[winner] + (k * self.g) * (1 - result)
+            self.ratingDict[loser] = self.ratingDict[loser] + (k * self.g) * (0 - (1 - result))
+        else:
+            self.ratingDict[winner] = self.ratingDict[winner] + (self.k * self.g) * (1 - result)
+            self.ratingDict[loser] = self.ratingDict[loser] + (self.k * self.g) * (0 - (1 - result))
 
     def getElo(self, team):
         return self.ratingDict[team]
@@ -27,3 +31,23 @@ class Elo:
     def listResult(self):
         for player in self.ratingDict:
             print(f'{player} is: {int(self.ratingDict[player])} elo')
+
+    def mValue(self, p1, p2):
+        p1name = p1
+        p2name = p2
+        p1 = self.ratingDict[p1]
+        p2 = self.ratingDict[p2]
+        if p2-p1 > 200:
+            p1 = p2-200
+            tmp = abs(1 / 5 * (p2 - p1))
+        elif p1-p2 > 200:
+            p2 = p1-200
+            tmp = abs(1 / 5 * (p1 - p2))
+        else:
+            if p1 > p2:
+                tmp = abs(1 / 5 * (p1 - p2))
+            elif p2 > p1:
+                tmp = abs(1 / 5 * (p2 - p1))
+            else:
+                tmp = 0
+        return f"{p1name} vs {p2name} has a M value of: {tmp}"
